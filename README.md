@@ -52,7 +52,8 @@ GET http://127.0.0.1:8000/sicoj/catalogos/api/v1/estado-tarea-ap/get-list/?&filt
     "messages": []
 }
 ```
-> [!NOTE]  En este ejemplo, el estado \"1\": \"PENDIENTE DE TURNAR\" corresponde a un estado presente en la bandeja de pendientes y, por lo tanto, debe ser excluido del filtro en el frontend, y por otro lado falta "PENDIENTE DE TURNAR".
+> [!NOTE]
+> En este ejemplo, el estado \"1\": \"PENDIENTE DE TURNAR\" corresponde a un estado presente en la bandeja de pendientes y, por lo tanto, debe ser excluido del filtro en el frontend, y por otro lado falta "PENDIENTE DE TURNAR".
 ## RN13 - Filtro: Estado procesal
 
 - **Tipo:** \"Lista de opciones\"
@@ -61,7 +62,8 @@ GET http://127.0.0.1:8000/sicoj/catalogos/api/v1/estado-tarea-ap/get-list/?&filt
 - **Validaciones:**
   - El sistema debe permitir elegir cualquier estado procesal **excepto** los que se muestran en la **bandeja de pendientes**.
 
-> [!NOTE]  Similar al filtro anterior, los estados procesales que aparecen en la bandeja de pendientes deben ser excluidos de este filtro.
+> [!NOTE]
+>  Similar al filtro anterior, los estados procesales que aparecen en la bandeja de pendientes deben ser excluidos de este filtro.
 
 ### Ejemplo de Solicitud a la API
 
@@ -87,7 +89,8 @@ GET http://127.0.0.1:8000/sicoj/catalogos/api/v1/estado-procesal-ap/get-list/?&f
     "messages": []
 }
 ```
-> [!NOTE]  En este caso, se debe identificar cuáles de estos estados están presentes en la bandeja de pendientes para excluirlos del filtro en el frontend.
+> [!NOTE]
+> En este caso, se debe identificar cuáles de estos estados están presentes en la bandeja de pendientes para excluirlos del filtro en el frontend.
 
 
 ### Implementación en el Frontend
@@ -111,7 +114,8 @@ manageEstadoProcesal(CRUD_ACTION.LIST, {
     );
 });
 ```
-> [!NOTE]  En esta función, se solicita a la API el catálogo de estados procesales filtrados por el rol operativo (TIPO_ROL.OP). La respuesta se convierte en una lista de valores y se almacena en listEstadoProcesal. En caso de error, se muestra un mensaje al usuario.
+> [!NOTE]
+>  En esta función, se solicita a la API el catálogo de estados procesales filtrados por el rol operativo (TIPO_ROL.OP). La respuesta se convierte en una lista de valores y se almacena en listEstadoProcesal. En caso de error, se muestra un mensaje al usuario.
 
 
 #### Gestión de Estados de Tarea
@@ -133,7 +137,8 @@ manageTarea(CRUD_ACTION.LIST, {
     );
 });
 ```
-> [!NOTE]  Similar a la función anterior, se solicita a la API el catálogo de estados de tarea filtrados por el rol operativo. La respuesta se convierte en una lista de tareas (listTask). Posteriormente, se filtran las tareas para excluir aquellas con value igual a \"1\" (correspondiente a "PENDIENTE DE TURNAR") lo cual me prohibieron implementar xD, almacenando el resultado en listManageTarea. En caso de error, se muestra un mensaje al usuario.
+> [!NOTE]
+> Similar a la función anterior, se solicita a la API el catálogo de estados de tarea filtrados por el rol operativo. La respuesta se convierte en una lista de tareas (listTask). Posteriormente, se filtran las tareas para excluir aquellas con value igual a \"1\" (correspondiente a "PENDIENTE DE TURNAR") lo cual me prohibieron implementar xD, almacenando el resultado en listManageTarea. En caso de error, se muestra un mensaje al usuario.
 
 
 ### Historias de Usuario para Historico de asuntos Filtros Estado procesal y Tarea
